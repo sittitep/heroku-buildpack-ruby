@@ -4,3 +4,10 @@ require 'pathname'
 
 release = Pathname.new(ARGV.first).join("tmp/heroku-buildpack-release-step.yml")
 puts release.read if release.exist?
+
+#!/usr/bin/env bash
+cat &lt;&lt;EOF
+---
+config_vars:
+PATH: $PATH:/app/vendor/libmcrypt/bin
+EOF
